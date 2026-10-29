@@ -1,10 +1,12 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var SPEED = 5.0
+@export var JUMP_VELOCITY = 4.5
 
-
+var look_dir: Vector2
+@onready var camera = Camera3D
+@export var camera_sens = 50   
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -26,3 +28,4 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
