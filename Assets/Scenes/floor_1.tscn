@@ -64,8 +64,6 @@ mesh = SubResource("BoxMesh_xmo8n")
 [node name="player" type="CharacterBody3D" parent="." unique_id=1020563384]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1377989, 0)
 script = ExtResource("1_w7j4e")
-JUMP_VELOCITY = 5.12
-sensitivity = 0.003
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=135593691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08590937, 0)
