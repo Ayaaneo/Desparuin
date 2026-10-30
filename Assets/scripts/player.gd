@@ -14,6 +14,10 @@ var t_bob = 0.0
 # FOV
 var FOV = 75.0
 var FOV_Change = 1.5
+
+
+@onready var slide_check = $Slide_Check
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -23,12 +27,16 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 func _physics_process(delta: float) -> void:
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta 
 
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	
 		velocity.y = JUMP_VELOCITY
 	
 	# handle Sprint

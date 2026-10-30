@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8opisrtqkog1"]
 
-[ext_resource type="Script" uid="uid://cmaaf14h4rb62" path="res://Assets/scripts/player.gd" id="1_w7j4e"]
+[ext_resource type="PackedScene" uid="uid://ysxfscsu60na" path="res://Assets/Scenes/player.tscn" id="1_w7j4e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7ptjm"]
 
@@ -21,10 +21,6 @@ proximity_fade_distance = 0.01
 albedo_color = Color(0.3960686, 0.66918766, 0.23134163, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xmo8n"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xmo8n"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i0y1n"]
 
 [node name="Floor1" type="Node" unique_id=1604478468]
 
@@ -61,22 +57,8 @@ transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
 material_override = SubResource("ORMMaterial3D_86b32")
 mesh = SubResource("BoxMesh_xmo8n")
 
-[node name="player" type="CharacterBody3D" parent="." unique_id=1020563384]
+[node name="player" parent="." unique_id=1785636645 instance=ExtResource("1_w7j4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1377989, 0)
-script = ExtResource("1_w7j4e")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=135593691]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08590937, 0)
-mesh = SubResource("CapsuleMesh_xmo8n")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=914315189]
-shape = SubResource("CapsuleShape3D_i0y1n")
-
-[node name="head" type="Node3D" parent="player" unique_id=2116885196]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5750346, 0)
-
-[node name="Camera3D" type="Camera3D" parent="player/head" unique_id=805808397]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12431455, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=150976802]
-transform = Transform3D(1, 0, 0, 0, -0.5744231, 0.8185586, 0, -0.8185586, -0.5744231, 0, 0, 0)
+transform = Transform3D(1.1405259, 0, 0, 0, 0.01652345, 0.9998635, 0, -0.99986356, 0.016523449, 0, 0, 0)
