@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b3sdsesma04k5"]
+
+[ext_resource type="Script" uid="uid://c5gfi2dpe883n" path="res://Assets/scripts/options.gd" id="1_v6ol1"]
+
+[node name="Options" type="Node2D" unique_id=631659510]
+script = ExtResource("1_v6ol1")
+
+[node name="Control" type="Control" parent="." unique_id=1019666897]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Button" parent="Control" unique_id=1346811794]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 460.0
+offset_right = 447.0
+offset_bottom = 509.0
+text = "Back"
+
+[connection signal="pressed" from="Control/Back" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
