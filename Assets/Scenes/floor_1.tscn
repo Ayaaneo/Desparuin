@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b8opisrtqkog1"]
 
 [ext_resource type="PackedScene" uid="uid://ysxfscsu60na" path="res://Assets/Scenes/player.tscn" id="1_w7j4e"]
+[ext_resource type="PackedScene" uid="uid://dbrc2ohns50kd" path="res://Assets/Scenes/hud.tscn" id="2_w0g1t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0y1n"]
 
@@ -57,3 +58,5 @@ mesh = SubResource("BoxMesh_i0y1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1898872828]
 shape = SubResource("BoxShape3D_xmo8n")
+
+[node name="HUD" parent="." unique_id=1488221304 instance=ExtResource("2_w0g1t")]

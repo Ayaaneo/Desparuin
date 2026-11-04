@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dbrc2ohns50kd"]
+
+[ext_resource type="Texture2D" uid="uid://m2b4objl7o46" path="res://Assets/OtherAssets/Cross-hair.png" id="1_71ymp"]
+
+[node name="HUD" type="Node" unique_id=1488221304]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=223978079]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=342343470]
+position = Vector2(580, 325)
+texture = ExtResource("1_71ymp")
