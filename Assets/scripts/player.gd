@@ -66,10 +66,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 			velocity.z = move_toward(velocity.z, 0, WALK_SPEED)
-			if Input.is_action_pressed("Slide"):
-				slide_velocity = speed + SPRINT
-				velocity.x = direction.x * slide_velocity
-				velocity.z = direction.z + slide_velocity
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 2.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 2.0)
