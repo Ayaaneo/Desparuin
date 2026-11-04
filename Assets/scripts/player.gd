@@ -7,6 +7,7 @@ const sensitivity = 0.003
 const SPRINT = 7 
 @onready var head = $head
 @onready var camera = $head/Camera3D
+
 # HeadBob
 const BOB_FREQ = 2.0
 const BOB_AMP = 0.08
@@ -19,6 +20,8 @@ var wall_jump_velocity = 3
 #Sliding
 var slide_velocity = 3
 
+
+@onready var Animation_tree = $"AnimationPlayer"
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -48,9 +51,9 @@ func _physics_process(delta: float) -> void:
 		speed = SPRINT
 	else:
 		speed = WALK_SPEED
-	#Sliding
-	if Input.is_action_pressed("Slide"):
-		_sliding()
+
+		
+	
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -63,10 +66,17 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 			velocity.z = move_toward(velocity.z, 0, WALK_SPEED)
+			if Input.is_action_pressed("Slide"):
+				slide_velocity = speed + SPRINT
+				velocity.x = direction.x * slide_velocity
+				velocity.z = direction.z + slide_velocity
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 2.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 2.0)
+	
+	
 	# Head bob:
+	
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
@@ -92,7 +102,3 @@ func _wall_jump():
 	if no_velocity:
 		wall_jump_velocity = -collisionNormal * speed
 		 
-func _sliding():
-	slide_velocity = speed + SPRINT	
-	pass
-	##NAAHIDUS HELP I DONT KNOW HOW TO DO SHI.
