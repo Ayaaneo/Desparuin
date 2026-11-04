@@ -4,10 +4,16 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i0y1n"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kke37"]
+size = Vector2(38, 15)
+
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_86b32"]
-albedo_color = Color(0.3960686, 0.66918766, 0.23134163, 1)
+disable_fog = true
+albedo_color = Color(0.6611481, 0.5852389, 0.702543, 1)
+albedo_texture = SubResource("PlaceholderTexture2D_kke37")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xmo8n"]
+size = Vector3(0.99346924, 1, 1.0028076)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i0y1n"]
 
@@ -16,7 +22,7 @@ albedo_color = Color(0.3960686, 0.66918766, 0.23134163, 1)
 [node name="Floor1" type="Node" unique_id=1604478468]
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=471635435]
-transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 7, -0.029323578, 0, 0)
+transform = Transform3D(7.416399, 0, 0, 0, 1, 0, 0, 0, 7.0803633, -0.029323578, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=881503000]
 transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
@@ -24,7 +30,7 @@ shape = SubResource("BoxShape3D_i0y1n")
 debug_color = Color(1.347661e-06, 0.58525735, 0.7795428, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=452375483]
-transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(9.999995, 0, 0, 0, 0.5, 0, 0, 0, 9.999995, -0.032653876, 0, 0.014038081)
 material_override = SubResource("ORMMaterial3D_86b32")
 mesh = SubResource("BoxMesh_xmo8n")
 

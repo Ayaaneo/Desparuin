@@ -6,6 +6,66 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i0y1n"]
 
+[sub_resource type="Animation" id="Animation_6cd4h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+
+[sub_resource type="Animation" id="Animation_7dd06"]
+resource_name = "Slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.8, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("head/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [75.0, 62.0, 75.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38rej"]
+_data = {
+&"RESET": SubResource("Animation_6cd4h"),
+&"Slide": SubResource("Animation_7dd06")
+}
+
 [node name="player" type="CharacterBody3D" unique_id=1785636645]
 script = ExtResource("1_6cd4h")
 
@@ -21,4 +81,8 @@ shape = SubResource("CapsuleShape3D_i0y1n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5750346, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=594343180]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12431455, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 36.55908, 0, -0.12431455, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1178881688]
+libraries/ = SubResource("AnimationLibrary_38rej")
+speed_scale = 2.6
