@@ -14,9 +14,10 @@ var t_bob = 0.0
 # FOV
 var FOV = 75.0
 var FOV_Change = 1.5
-
-
-@onready var slide_check = $Slide_Check
+#WallJump
+var wall_jump_velocity = 3
+#Sliding
+var slide_velocity = 3
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -36,14 +37,20 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-	
+		wall_jump_velocity = velocity
 		velocity.y = JUMP_VELOCITY
 	
+	# Wall jump
+	if is_on_wall_only() and Input.is_action_just_pressed("Jump"):
+		_wall_jump()
 	# handle Sprint
 	if Input.is_action_pressed("Sprint"):
 		speed = SPRINT
 	else:
 		speed = WALK_SPEED
+	#Sliding
+	if Input.is_action_pressed("Slide"):
+		_sliding()
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -74,3 +81,18 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+
+func _wall_jump():
+	var collisionNormal = get_last_slide_collision().get_normal()
+	velocity = wall_jump_velocity.bounce(collisionNormal)
+	velocity.y = JUMP_VELOCITY
+	wall_jump_velocity = velocity
+	
+	var no_velocity = wall_jump_velocity.x == 0 and wall_jump_velocity.z == 0
+	if no_velocity:
+		wall_jump_velocity = -collisionNormal * speed
+		 
+func _sliding():
+	slide_velocity = speed + SPRINT	
+	pass
+	##NAAHIDUS HELP I DONT KNOW HOW TO DO SHI.
