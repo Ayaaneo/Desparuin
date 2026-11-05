@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu3ls7eaq8h01" path="res://Assets/scripts/main_menu.gd" id="1_x6jn2"]
 [ext_resource type="Texture2D" uid="uid://bx0efrecxjm2b" path="res://Assets/OtherAssets/Buttons.png" id="2_fsbqx"]
+[ext_resource type="Script" uid="uid://dyphyp6ff0ixd" path="res://Assets/scripts/tween_button.gd" id="3_cbhea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7neeq"]
 atlas = ExtResource("2_fsbqx")
@@ -53,12 +54,13 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 53.0
 offset_top = 257.0
-offset_right = 272.0
+offset_right = 271.185
 offset_bottom = 349.0
 texture_normal = SubResource("AtlasTexture_7neeq")
 texture_pressed = SubResource("AtlasTexture_4lrxv")
 texture_hover = SubResource("AtlasTexture_w1rmo")
 stretch_mode = 4
+script = ExtResource("3_cbhea")
 
 [node name="Options" type="TextureButton" parent="ButtonManager" unique_id=2130720658]
 texture_filter = 1
@@ -71,6 +73,7 @@ texture_normal = SubResource("AtlasTexture_fsbqx")
 texture_pressed = SubResource("AtlasTexture_cbhea")
 texture_hover = SubResource("AtlasTexture_tanm1")
 stretch_mode = 0
+script = ExtResource("3_cbhea")
 
 [node name="Quit" type="TextureButton" parent="ButtonManager" unique_id=1789160350]
 texture_filter = 1
@@ -83,6 +86,7 @@ texture_normal = SubResource("AtlasTexture_6qsvb")
 texture_pressed = SubResource("AtlasTexture_fadmi")
 texture_hover = SubResource("AtlasTexture_shbfh")
 stretch_mode = 0
+script = ExtResource("3_cbhea")
 
 [connection signal="pressed" from="ButtonManager/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]
