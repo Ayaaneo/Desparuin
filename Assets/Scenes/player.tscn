@@ -86,3 +86,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 36.55908, 0, -0.12431455, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1178881688]
 libraries/ = SubResource("AnimationLibrary_38rej")
 speed_scale = 2.6
+
+[node name="CoyoteTime" type="Timer" parent="." unique_id=1937551317]
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]

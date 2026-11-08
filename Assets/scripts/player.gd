@@ -1,10 +1,10 @@
 extends CharacterBody3D
 #SpeedStuff
 var speed
-const WALK_SPEED = 5.0
+const WALK_SPEED = 4.0
 const JUMP_VELOCITY = 5.0
 const sensitivity = 0.003
-const SPRINT = 7 
+const SPRINT = 6
 @onready var head = $head
 @onready var camera = $head/Camera3D
 
@@ -17,13 +17,18 @@ var FOV = 75.0
 var FOV_Change = 1.5
 #WallJump
 var wall_jump_velocity = 3
-#Sliding
-var slide_velocity = 3
-
+var jumping = false
+# CoyoteTime
+var coyote_frames = 6
+var coyote = false
+var last_floor = false
+# slam
+var slam_storage = 2
 
 @onready var Animation_tree = $"AnimationPlayer"
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$CoyoteTime.wait_time = coyote_frames / 60.0
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -35,13 +40,17 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta 
+		velocity += get_gravity() * delta
+		if Input.is_action_just_pressed("slam"):
+			velocity += get_gravity() * slam_storage
+	
 
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		wall_jump_velocity = velocity
 		velocity.y = JUMP_VELOCITY
+		
 	
 	# Wall jump
 	if is_on_wall_only() and Input.is_action_just_pressed("Jump"):
@@ -52,8 +61,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed = WALK_SPEED
 
-		
-	
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -70,7 +77,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 2.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 2.0)
 	
+	if Input.is_action_just_pressed("Jump") and is_on_floor() or coyote:
+		velocity.y = JUMP_VELOCITY
+		jumping = true
 	
+
 	# Head bob:
 	
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -81,7 +92,11 @@ func _physics_process(delta: float) -> void:
 	var target_fov = FOV + FOV_Change * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	move_and_slide()
+	last_floor = is_on_floor()
 	
+	if !is_on_floor() and last_floor and !jumping:
+		coyote = true
+		$CoyoteTime.start()
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
@@ -98,3 +113,7 @@ func _wall_jump():
 	if no_velocity:
 		wall_jump_velocity = -collisionNormal * speed
 		 
+
+
+func _on_coyote_time_timeout() -> void:
+	coyote = false
