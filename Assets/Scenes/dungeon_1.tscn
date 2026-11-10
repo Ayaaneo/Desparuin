@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c71ggrxpferqe"]
+
+[ext_resource type="PackedScene" uid="uid://ysxfscsu60na" path="res://Assets/Scenes/player.tscn" id="2_l2mji"]
+
+[sub_resource type="Environment" id="Environment_i0y1n"]
+background_mode = 1
+background_color = Color(0.2428228, 0.10830299, 0.19458795, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.7465509, 0.8235333, 0.46788555, 1)
+
+[node name="dungeon1" type="Node" unique_id=392804791]
+
+[node name="player" parent="." unique_id=1785636645 instance=ExtResource("2_l2mji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7937246, 2.9104512, -15.878437)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=396770058]
+environment = SubResource("Environment_i0y1n")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1556536076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.409799, 0)
