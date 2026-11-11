@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c71ggrxpferqe"]
 
+[ext_resource type="PackedScene" uid="uid://c414vlc80bnyc" path="res://Assets/Models/walk.glb" id="2_jjseg"]
 [ext_resource type="PackedScene" uid="uid://ysxfscsu60na" path="res://Assets/Scenes/player.tscn" id="2_l2mji"]
+[ext_resource type="PackedScene" uid="uid://c4sxqto2uora8" path="res://Assets/Models/4-way.glb" id="3_l2mji"]
 
 [sub_resource type="Environment" id="Environment_i0y1n"]
 background_mode = 1
@@ -10,11 +12,24 @@ ambient_light_color = Color(0.7465509, 0.8235333, 0.46788555, 1)
 
 [node name="dungeon1" type="Node" unique_id=392804791]
 
-[node name="player" parent="." unique_id=1785636645 instance=ExtResource("2_l2mji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7937246, 2.9104512, -15.878437)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=396770058]
 environment = SubResource("Environment_i0y1n")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1556536076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.409799, 0)
+[node name="player" parent="." unique_id=1785636645 instance=ExtResource("2_l2mji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.46296883, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=981211018]
+transform = Transform3D(0.0036777644, -0.9791949, 0.20288911, 0.9475007, 0.068283364, 0.3123777, -0.31973258, 0.19108874, 0.92803895, 0, 11, 0)
+light_energy = 0.309
+
+[node name="walk" parent="." unique_id=1941695502 instance=ExtResource("2_jjseg")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -54.562256, -1.8586769, 16.383774)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk" unique_id=263310443]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+
+[node name="4-way" parent="." unique_id=1752704502 instance=ExtResource("3_l2mji")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -30.989227, -2.5874507, 3.4440775)
