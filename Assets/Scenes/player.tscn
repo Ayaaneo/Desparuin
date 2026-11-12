@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ysxfscsu60na"]
 
 [ext_resource type="Script" uid="uid://cmaaf14h4rb62" path="res://Assets/scripts/player.gd" id="1_6cd4h"]
+[ext_resource type="PackedScene" uid="uid://ofa2b2xy8gjm" path="res://Assets/Models/stylized_bow.glb" id="2_7dd06"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xmo8n"]
 
@@ -79,6 +80,10 @@ shape = SubResource("CapsuleShape3D_i0y1n")
 
 [node name="head" type="Node3D" parent="." unique_id=2114220035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5750346, 0)
+
+[node name="Sketchfab_Scene" parent="head" unique_id=106962907 instance=ExtResource("2_7dd06")]
+transform = Transform3D(-0.3998874, 0.3212386, 0.6139185, 0.17533025, 0.7326703, -0.26917198, -0.6703353, -2.3841858e-08, -0.43663555, -0.579152, -0.23726654, -0.5211001)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=594343180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 36.55908, 0, -0.12431455, 0)
