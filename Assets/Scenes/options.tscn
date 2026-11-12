@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://b3sdsesma04k5"]
 
 [ext_resource type="Script" uid="uid://c5gfi2dpe883n" path="res://Assets/scripts/options.gd" id="1_v6ol1"]
+[ext_resource type="Texture2D" uid="uid://dybnv04uxpgm6" path="res://Assets/OtherAssets/Arch.png" id="2_t43rc"]
 
 [node name="Options" type="Node2D" unique_id=631659510]
 script = ExtResource("1_v6ol1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=479328050]
+texture_filter = 1
+offset_right = 1157.3334
+offset_bottom = 651.0
+texture = ExtResource("2_t43rc")
+expand_mode = 1
 
 [node name="Control" type="Control" parent="." unique_id=1019666897]
 layout_mode = 3
@@ -13,10 +21,10 @@ offset_bottom = 40.0
 
 [node name="Back" type="Button" parent="Control" unique_id=1346811794]
 layout_mode = 0
-offset_left = 194.0
-offset_top = 460.0
-offset_right = 447.0
-offset_bottom = 509.0
+offset_left = 84.0
+offset_top = 527.0
+offset_right = 337.0
+offset_bottom = 576.0
 text = "Back"
 
 [connection signal="pressed" from="Control/Back" to="." method="_on_button_pressed"]

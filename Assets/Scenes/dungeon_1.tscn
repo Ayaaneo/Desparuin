@@ -1,0 +1,362 @@
+[gd_scene format=3 uid="uid://c71ggrxpferqe"]
+
+[ext_resource type="PackedScene" uid="uid://c414vlc80bnyc" path="res://Assets/Models/walk.glb" id="2_jjseg"]
+[ext_resource type="PackedScene" uid="uid://ysxfscsu60na" path="res://Assets/Scenes/player.tscn" id="2_l2mji"]
+[ext_resource type="PackedScene" uid="uid://c4sxqto2uora8" path="res://Assets/Models/4-way.glb" id="3_l2mji"]
+[ext_resource type="PackedScene" uid="uid://t7v5fccsrv3c" path="res://Assets/Models/Roomopen.glb" id="4_b2rit"]
+[ext_resource type="PackedScene" uid="uid://bqw3ypffd8pg4" path="res://Assets/Models/Cylinder1.glb" id="5_m3a5l"]
+[ext_resource type="PackedScene" uid="uid://7ii33kav8isu" path="res://Assets/Models/Cylinder end.glb" id="6_4wkv0"]
+[ext_resource type="PackedScene" uid="uid://dvs0322d0i20t" path="res://Assets/Models/L-SHape.glb" id="7_7td40"]
+[ext_resource type="PackedScene" uid="uid://dba0jhnr6lwli" path="res://Assets/Models/Room end.glb" id="8_7td40"]
+
+[sub_resource type="Environment" id="Environment_i0y1n"]
+background_mode = 1
+background_color = Color(0.2428228, 0.10830299, 0.19458795, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.7465509, 0.8235333, 0.46788555, 1)
+
+[node name="dungeon1" type="Node" unique_id=392804791]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=396770058]
+environment = SubResource("Environment_i0y1n")
+
+[node name="player" parent="." unique_id=1785636645 instance=ExtResource("2_l2mji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.46296883, -7.1250763)
+
+[node name="walk" parent="." unique_id=1941695502 instance=ExtResource("2_jjseg")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -54.562256, -1.8586769, 16.383774)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk" unique_id=263310443]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 26.831408
+
+[node name="walk7" parent="." unique_id=1448232309 instance=ExtResource("2_jjseg")]
+transform = Transform3D(-0.0013955273, 0, 0.24999611, 0, 0.25, 0, -0.24999611, 0, -0.0013955273, 29.394829, -1.8586769, -103.06249)
+
+[node name="walk5" parent="." unique_id=1201956015 instance=ExtResource("2_jjseg")]
+transform = Transform3D(-0.00072027463, 0, -0.24999896, 0, 0.25, 0, 0.24999896, 0, -0.00072027463, 20.336864, -1.8586769, -186.39574)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk5" unique_id=2128025366]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 26.831408
+
+[node name="walk4" parent="." unique_id=2068947032 instance=ExtResource("2_jjseg")]
+transform = Transform3D(0.002039139, -1.0927464e-08, -1.0999314, 1.0615515e-08, 0.25000003, -4.767752e-08, 0.24285464, -1.0836095e-08, 0.009235618, -103.232056, -1.8586769, -81.35123)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk4" unique_id=372367834]
+transform = Transform3D(4.1244593, -4.2632564e-14, 3.7252903e-09, 1.4210855e-14, 3.9999995, -2.0983215e-14, -9.313226e-10, 2.6367797e-15, 0.72729886, 277.28326, 7.4347076, -75.34199)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.45
+light_volumetric_fog_energy = 1.345
+light_size = 0.03
+omni_range = 17.474247
+
+[node name="walk3" parent="." unique_id=230405584 instance=ExtResource("2_jjseg")]
+transform = Transform3D(0.00028644892, 0, 0.24999984, 0, 0.25, 0, -0.24999984, 0, 0.00028644892, 45.04477, -1.8586769, 52.587986)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk3" unique_id=1127313678]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+
+[node name="walk2" parent="." unique_id=333087383 instance=ExtResource("2_jjseg")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.81370014, -54.562256, -1.8586769, -27.793041)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk2" unique_id=611386153]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 16.314695
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walk2" unique_id=1249354834]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1.228954, 277.28326, 7.4347076, -48.768467)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 13.111733
+
+[node name="walk6" parent="." unique_id=2103234507 instance=ExtResource("2_jjseg")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.81370014, -10.505062, -1.8586769, -127.775314)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk6" unique_id=474439353]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 16.314695
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walk6" unique_id=217155195]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1.228954, 277.28326, 7.4347076, -48.768467)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 13.111733
+
+[node name="walk8" parent="." unique_id=1073995172 instance=ExtResource("2_jjseg")]
+transform = Transform3D(-0.0017612105, 0, 0.8136798, 0, 0.24999999, 0, -0.24999376, 0, -0.005732386, 2.5930824, -1.8586769, -103.054794)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="walk8" unique_id=1818162926]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 16.314695
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="walk8" unique_id=1411787073]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1.228954, 277.28326, 7.4347076, -48.768467)
+light_color = Color(0.54509807, 0.5254902, 1, 1)
+light_energy = 2.315
+light_volumetric_fog_energy = 1.345
+omni_range = 13.111733
+
+[node name="4-way" parent="." unique_id=1752704502 instance=ExtResource("3_l2mji")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -30.989227, -2.5874507, 3.4440775)
+
+[node name="4-way2" parent="." unique_id=1079687876 instance=ExtResource("3_l2mji")]
+transform = Transform3D(-0.0024841723, 0, 0.24998766, 0, 0.25, 0, -0.24998766, 0, -0.0024841723, 77.75612, -2.5874507, -99.7328)
+
+[node name="Roomopen" parent="." unique_id=1651365113 instance=ExtResource("4_b2rit")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.8642921, -3.8548284, -21.630726)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Roomopen" unique_id=1639216680]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 60.76297, 31.141514, -66.93819)
+omni_range = 13.757049
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Roomopen/OmniLight3D" unique_id=539725092]
+transform = Transform3D(1, 0, 0, 0, 0.21932675, 0.97565144, 0, -0.97565144, 0.21932675, 0, 0, -0.48104858)
+spot_range = 9.501356
+spot_angle = 89.99
+
+[node name="Roomopen2" parent="." unique_id=1466917869 instance=ExtResource("4_b2rit")]
+transform = Transform3D(0.00023971892, 0, 0.24999988, 0, 0.25, 0, -0.24999988, 0, 0.00023971892, 7.6965866, -3.8548284, -156.0151)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Roomopen2" unique_id=1661936791]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 60.76297, 31.141514, -66.93819)
+omni_range = 13.757049
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Roomopen2/OmniLight3D" unique_id=386165939]
+transform = Transform3D(1, 0, 0, 0, 0.21932675, 0.97565144, 0, -0.97565144, 0.21932675, 0, 0, -0.48104858)
+spot_range = 9.501356
+spot_angle = 89.99
+
+[node name="Cylinder1" parent="." unique_id=1567731657 instance=ExtResource("5_m3a5l")]
+transform = Transform3D(-0.24998836, 0, 0.0024119618, 0, 0.25, 0, -0.0024119618, 0, -0.24998836, -9.747654, -4.9890995, -139.82109)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cylinder1" unique_id=852466540]
+transform = Transform3D(3.9996178, -0.03857785, -0.03961153, 0.038577855, -0.10592864, 3.998411, -0.039611526, -3.998411, -0.10554645, -95.143295, 61.373093, -84.63193)
+light_color = Color(0.5990993, 0.011446167, 0.5368126, 1)
+light_energy = 81.178
+light_indirect_energy = 3.417
+light_volumetric_fog_energy = 3.195
+distance_fade_begin = 0.0
+spot_range = 13.860231
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cylinder1" unique_id=424077529]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -120.9592, 44, -98.837616)
+light_color = Color(0.20392157, 0.13725491, 0.3647059, 1)
+omni_range = 14.0
+omni_attenuation = 0.57
+
+[node name="L-SHape" parent="." unique_id=717246190 instance=ExtResource("7_7td40")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 43.44061, -2.644621, 29.614088)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape" unique_id=1764354669]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape" unique_id=332601336]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape" unique_id=1891420799]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape" unique_id=861684392]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape4" parent="." unique_id=2088435443 instance=ExtResource("7_7td40")]
+transform = Transform3D(0.00025268292, 0, 0.24999987, 0, 0.25, 0, -0.24999987, 0, 0.00025268292, 125.565346, -2.644621, -136.19122)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape4" unique_id=739754534]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape4" unique_id=873084617]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape4" unique_id=1980109615]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape4" unique_id=385494257]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape9" parent="." unique_id=240667511 instance=ExtResource("7_7td40")]
+transform = Transform3D(0.00025268292, 0, 0.24999987, 0, 0.25, 0, -0.24999987, 0, 0.00025268292, 80.798874, -2.644621, -162.9555)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape9" unique_id=1364328244]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape9" unique_id=1298595961]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape9" unique_id=675944450]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape9" unique_id=331272791]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape5" parent="." unique_id=1840740431 instance=ExtResource("7_7td40")]
+transform = Transform3D(-0.0025681811, 0, -0.24998683, 0, 0.25, 0, 0.24998683, 0, -0.0025681811, 34.97969, -2.644621, -124.66721)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape5" unique_id=2054822043]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape5" unique_id=82581830]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape5" unique_id=381399523]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape5" unique_id=1929617976]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape8" parent="." unique_id=666106647 instance=ExtResource("7_7td40")]
+transform = Transform3D(-0.0025681811, 0, -0.24998683, 0, 0.25, 0, 0.24998683, 0, -0.0025681811, -9.786762, -2.644621, -153.18391)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape8" unique_id=1143678016]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape8" unique_id=398372789]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape8" unique_id=1072980988]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape8" unique_id=289386381]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape6" parent="." unique_id=1258909045 instance=ExtResource("7_7td40")]
+transform = Transform3D(0.24999842, 0, -0.0008978228, 0, 0.25, 0, 0.0008978228, 0, 0.24999842, 100.02608, -2.644621, -70.40901)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape6" unique_id=733033759]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape6" unique_id=118881378]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape6" unique_id=1404770733]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape6" unique_id=1964041940]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape7" parent="." unique_id=1278077533 instance=ExtResource("7_7td40")]
+transform = Transform3D(-0.2499943, 0, 0.0016917929, 0, 0.25, 0, -0.0016917929, 0, -0.2499943, 117.4283, -2.644621, -189.37004)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape7" unique_id=473448889]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape7" unique_id=313078914]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape7" unique_id=356698873]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape7" unique_id=1106755312]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape3" parent="." unique_id=693297244 instance=ExtResource("7_7td40")]
+transform = Transform3D(0.24997531, 0, 0.0035135292, 0, 0.25, 0, -0.0035135292, 0, 0.24997531, 50.54178, -2.644621, -72.77296)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape3" unique_id=1341941393]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -184.69229)
+omni_range = 9.243561
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="L-SHape3" unique_id=1934841177]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -220.65164)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="L-SHape3" unique_id=3304917]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 33.639618, 7.1820755, -265.34402)
+omni_range = 17.899332
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape3" unique_id=25183157]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -5.856201, 7.1820755, -184.69229)
+omni_range = 8.57532
+
+[node name="L-SHape2" parent="." unique_id=991148194 instance=ExtResource("7_7td40")]
+transform = Transform3D(-0.2499999, 0, -0.00022521196, 0, 0.25, 0, 0.00022521196, 0, -0.2499999, 60.210503, -2.644621, -89.69455)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="L-SHape2" unique_id=2096815139]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.16366577, 7.6283765, -181.64935)
+omni_range = 9.871124
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="L-SHape2" unique_id=157632927]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.419327, 7.6283765, -181.62212)
+omni_range = 9.871124
+
+[node name="Cylinder end2" parent="." unique_id=280987809 instance=ExtResource("6_4wkv0")]
+transform = Transform3D(0.0016658669, 0, 0.24999446, 0, 0.25, 0, -0.24999446, 0, 0.0016658669, 76.366425, -5.7459197, -48.06796)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cylinder end2" unique_id=1597444622]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.047531128, 42.96061, 7.1319275)
+light_color = Color(1, 0.45, 0.45, 1)
+light_energy = 1.691
+omni_range = 13.103279
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cylinder end2" unique_id=2055675833]
+transform = Transform3D(3.9997654, -0.025230138, -0.035247773, 0.025230117, -1.2898247, 3.7862537, -0.035247784, -3.786254, -1.2895898, -10.448242, 42.900642, 0.4675293)
+light_color = Color(0, 0.6305602, 0.46148664, 1)
+light_energy = 11.85
+spot_range = 9.7523
+spot_angle = 54.331516
+
+[node name="Cylinder end3" parent="." unique_id=1162757188 instance=ExtResource("6_4wkv0")]
+transform = Transform3D(-0.00091787666, 0, -0.24999832, 0, 0.25, 0, 0.24999832, 0, -0.00091787666, -85.83072, -5.7459197, -167.40855)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Cylinder end3" unique_id=439089689]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.047531128, 42.96061, 7.1319275)
+light_color = Color(1, 0.45, 0.45, 1)
+light_energy = 1.691
+omni_range = 13.103279
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cylinder end3" unique_id=1105735117]
+transform = Transform3D(3.9997654, -0.025230138, -0.035247773, 0.025230117, -1.2898247, 3.7862537, -0.035247784, -3.786254, -1.2895898, -10.448242, 42.900642, 0.4675293)
+light_color = Color(0, 0.6305602, 0.46148664, 1)
+light_energy = 11.85
+spot_range = 9.7523
+spot_angle = 54.331516
+
+[node name="Room end" parent="." unique_id=136073650 instance=ExtResource("8_7td40")]
+transform = Transform3D(-0.00033162127, 0, -0.24999978, 0, 0.25, 0, 0.24999978, 0, -0.00033162127, -52.62561, -3.4876351, -74.32543)
+
+[node name="Room end2" parent="." unique_id=1023074316 instance=ExtResource("8_7td40")]
+transform = Transform3D(0.0012029393, 0, 0.2499971, 0, 0.25, 0, -0.2499971, 0, 0.0012029393, 104.84822, -3.4876351, -85.000404)
+
+[node name="Room end3" parent="." unique_id=829113248 instance=ExtResource("8_7td40")]
+transform = Transform3D(-0.24999984, 0, 0.00029246253, 0, 0.25, 0, -0.00029246253, 0, -0.24999984, 117.24842, -3.4875932, -187.67087)

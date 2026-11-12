@@ -3,8 +3,8 @@ extends CharacterBody3D
 var speed
 const WALK_SPEED = 4.0
 const JUMP_VELOCITY = 5.0
-const sensitivity = 0.003
-const SPRINT = 6
+const sensitivity = 0.008
+const SPRINT = 8
 @onready var head = $head
 @onready var camera = $head/Camera3D
 
