@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0hbty2jixpkn"]
 
 [ext_resource type="Script" uid="uid://cu3ls7eaq8h01" path="res://Assets/scripts/main_menu.gd" id="1_x6jn2"]
+[ext_resource type="Texture2D" uid="uid://dybnv04uxpgm6" path="res://Assets/OtherAssets/Arch.png" id="2_6qsvb"]
 [ext_resource type="Texture2D" uid="uid://bx0efrecxjm2b" path="res://Assets/OtherAssets/Buttons.png" id="2_fsbqx"]
 [ext_resource type="Script" uid="uid://dyphyp6ff0ixd" path="res://Assets/scripts/tween_button.gd" id="3_cbhea"]
 [ext_resource type="Texture2D" uid="uid://c58ycp1nbq4j6" path="res://Assets/OtherAssets/Desparuin.png" id="4_tanm1"]
@@ -116,6 +117,13 @@ region = Rect2(96, 141.08, 47, 47)
 
 [node name="MainMenu" type="Node2D" unique_id=271643334]
 script = ExtResource("1_x6jn2")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1191648432]
+texture_filter = 1
+offset_right = 1159.1111
+offset_bottom = 652.0
+texture = ExtResource("2_6qsvb")
+expand_mode = 1
 
 [node name="ButtonManager" type="Control" parent="." unique_id=1790124163]
 layout_mode = 3
