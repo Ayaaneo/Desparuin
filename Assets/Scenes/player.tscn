@@ -67,6 +67,14 @@ _data = {
 &"Slide": SubResource("Animation_7dd06")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_i0y1n"]
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmo8n"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [node name="player" type="CharacterBody3D" unique_id=1785636645]
 script = ExtResource("1_6cd4h")
 
@@ -82,11 +90,17 @@ shape = SubResource("CapsuleShape3D_i0y1n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5750346, 0)
 
 [node name="Sketchfab_Scene" parent="head" unique_id=106962907 instance=ExtResource("2_7dd06")]
+unique_name_in_owner = true
 transform = Transform3D(-0.3998874, 0.3212386, 0.6139185, 0.17533025, 0.7326703, -0.26917198, -0.6703353, -2.3841858e-08, -0.43663555, -0.579152, -0.23726654, -0.5211001)
 visible = false
 
 [node name="Camera3D" type="Camera3D" parent="head" unique_id=594343180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 36.55908, 0, -0.12431455, 0)
+
+[node name="SeeCast" type="RayCast3D" parent="head/Camera3D" unique_id=984381013]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -6.5302096e-08, -0.9999999, 0, 1.493938, -4.371138e-08, 0.124286175, 0.02802968, -0.21001166)
+collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1178881688]
 libraries/ = SubResource("AnimationLibrary_38rej")
@@ -94,5 +108,39 @@ speed_scale = 2.6
 
 [node name="CoyoteTime" type="Timer" parent="." unique_id=1937551317]
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1694270364]
+
+[node name="Enter" type="Label" parent="CanvasLayer" unique_id=383798422]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -52.0
+offset_right = 20.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press \"E\" to Enter"
+label_settings = SubResource("LabelSettings_i0y1n")
+
+[node name="Interact" type="Label" parent="CanvasLayer" unique_id=876401418]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -427.0
+offset_right = 81.0
+offset_bottom = -404.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press \"E\" to Interact"
+label_settings = SubResource("LabelSettings_xmo8n")
 
 [connection signal="timeout" from="CoyoteTime" to="." method="_on_coyote_time_timeout"]

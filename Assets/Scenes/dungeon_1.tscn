@@ -2,8 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c414vlc80bnyc" path="res://Assets/Models/walk.glb" id="2_jjseg"]
 [ext_resource type="PackedScene" uid="uid://ysxfscsu60na" path="res://Assets/Scenes/player.tscn" id="2_l2mji"]
+[ext_resource type="Script" uid="uid://2kttlqlri7hi" path="res://Assets/scripts/static_body_3d.gd" id="3_ge0bk"]
 [ext_resource type="PackedScene" uid="uid://c4sxqto2uora8" path="res://Assets/Models/4-way.glb" id="3_l2mji"]
+[ext_resource type="PackedScene" uid="uid://ofa2b2xy8gjm" path="res://Assets/Models/stylized_bow.glb" id="3_omrs1"]
 [ext_resource type="PackedScene" uid="uid://t7v5fccsrv3c" path="res://Assets/Models/Roomopen.glb" id="4_b2rit"]
+[ext_resource type="Script" uid="uid://c1v6odgotgtaw" path="res://Assets/Models/stylized_bow.gd" id="4_ys6r1"]
 [ext_resource type="PackedScene" uid="uid://bqw3ypffd8pg4" path="res://Assets/Models/Cylinder1.glb" id="5_m3a5l"]
 [ext_resource type="PackedScene" uid="uid://7ii33kav8isu" path="res://Assets/Models/Cylinder end.glb" id="6_4wkv0"]
 [ext_resource type="PackedScene" uid="uid://dvs0322d0i20t" path="res://Assets/Models/L-SHape.glb" id="7_7td40"]
@@ -15,16 +18,36 @@ background_color = Color(0.2428228, 0.10830299, 0.19458795, 1)
 ambient_light_source = 3
 ambient_light_color = Color(0.7465509, 0.8235333, 0.46788555, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmo8n"]
+size = Vector3(1, 1, 0.43759155)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i0y1n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i0y1n"]
+
 [node name="dungeon1" type="Node" unique_id=392804791]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=396770058]
 environment = SubResource("Environment_i0y1n")
 
 [node name="player" parent="." unique_id=1785636645 instance=ExtResource("2_l2mji")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.46296883, -7.1250763)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -0.46296883, 6.3387623)
 
 [node name="walk" parent="." unique_id=1941695502 instance=ExtResource("2_jjseg")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -54.562256, -1.8586769, 16.383774)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="walk" unique_id=1882209605]
+transform = Transform3D(-0.30523396, -1.1236644, 3.8267756, 0.71409035, 3.760551, 1.1611764, -3.9238896, 0.7717735, -0.08636224, 265.52435, 2.5874343, -59.79368)
+script = ExtResource("3_ge0bk")
+
+[node name="bow" parent="walk/StaticBody3D" unique_id=1566595427 instance=ExtResource("3_omrs1")]
+transform = Transform3D(1.0000001, -7.450581e-09, -2.9802322e-08, 1.4901161e-08, 1.0000001, 1.6763806e-08, 0, -5.5879354e-09, 1, 0, 0, 0)
+script = ExtResource("4_ys6r1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walk/StaticBody3D" unique_id=1511346974]
+transform = Transform3D(1.0000007, -4.7683716e-07, -2.682209e-07, 1.937151e-07, 1.0000006, 2.2351742e-07, -8.940697e-08, -1.73226e-07, 1.0000001, -4.7683716e-07, -1.9073486e-06, -0.039071083)
+shape = SubResource("BoxShape3D_xmo8n")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="walk" unique_id=263310443]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 277.28326, 7.4347076, -75.34198)
@@ -355,8 +378,44 @@ spot_angle = 54.331516
 [node name="Room end" parent="." unique_id=136073650 instance=ExtResource("8_7td40")]
 transform = Transform3D(-0.00033162127, 0, -0.24999978, 0, 0.25, 0, 0.24999978, 0, -0.00033162127, -52.62561, -3.4876351, -74.32543)
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="Room end" unique_id=778559116]
+transform = Transform3D(-3.9999995, 0, -0.0014704387, 0, 4, 0, 0.0014704387, 0, -3.9999995, 237.25192, 29.67274, 120.865005)
+omni_range = 13.757049
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Room end/OmniLight3D2" unique_id=143924383]
+transform = Transform3D(1, 0, 0, 0, 0.21932675, 0.97565144, 0, -0.97565144, 0.21932675, 0, 0, -0.48104858)
+spot_range = 9.501356
+spot_angle = 89.99
+
 [node name="Room end2" parent="." unique_id=1023074316 instance=ExtResource("8_7td40")]
 transform = Transform3D(0.0012029393, 0, 0.2499971, 0, 0.25, 0, -0.2499971, 0, 0.0012029393, 104.84822, -3.4876351, -85.000404)
 
+[node name="OmniLight3D3" type="OmniLight3D" parent="Room end2" unique_id=1113339506]
+transform = Transform3D(3.9999707, 0, 0.015411565, 0, 4, 0, -0.015411565, 0, 3.9999707, 233.3823, 29.67274, 125.83011)
+omni_range = 13.757049
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Room end2/OmniLight3D3" unique_id=131082274]
+transform = Transform3D(1, 0, 0, 0, 0.21932675, 0.97565144, 0, -0.97565144, 0.21932675, 0, 0, -0.48104858)
+spot_range = 9.501356
+spot_angle = 89.99
+
 [node name="Room end3" parent="." unique_id=829113248 instance=ExtResource("8_7td40")]
 transform = Transform3D(-0.24999984, 0, 0.00029246253, 0, 0.25, 0, -0.00029246253, 0, -0.24999984, 117.24842, -3.4875932, -187.67087)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Room end3" unique_id=1910523815]
+transform = Transform3D(0.0008439056, 0, -4, 0, 4, 0, 4, 0, 0.0008439056, 237.69014, 29.672573, 125.21619)
+omni_range = 13.757049
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Room end3/OmniLight3D4" unique_id=224950325]
+transform = Transform3D(1, 0, 0, 0, 0.21932675, 0.97565144, 0, -0.97565144, 0.21932675, 0, 0, -0.48104858)
+spot_range = 9.501356
+spot_angle = 89.99
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=279999480]
+transform = Transform3D(8.725588, 0, 0, 0, 7.969831, 0, 0, 0, 1, 13.6701145, 0, 9.586729)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1237765216]
+shape = SubResource("BoxShape3D_i0y1n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1947545616]
+mesh = SubResource("BoxMesh_i0y1n")
