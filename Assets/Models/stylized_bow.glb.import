@@ -42,7 +42,9 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Sketchfab_model/763594b1ef464302826a20399211cd8c_fbx/RootNode/group3/bow2/bow2_bow_MAT_0": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 3,
+"primitive/size": Vector3(12.485, 2, 27.425)
 }
 }
 }

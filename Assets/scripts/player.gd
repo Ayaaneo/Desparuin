@@ -4,7 +4,7 @@ var speed
 const WALK_SPEED = 4.0
 const JUMP_VELOCITY = 5.0
 const sensitivity = 0.008
-const SPRINT = 8
+const SPRINT = 7
 @onready var head = $head
 @onready var camera = $head/Camera3D
 
@@ -36,8 +36,20 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 func _physics_process(delta: float) -> void:
-	
-	
+	%Enter.hide()
+	%Interact.hide()
+	if %SeeCast.is_colliding():
+		var target = %SeeCast.get_collider()
+		if target != null and target.has_method("interact"):
+			%Interact.show()
+			if Input.is_action_just_pressed("interact"):
+				target.interact()
+		if target != null and target.has_method("Enter"):
+			%Enter.show()
+			if Input.is_action_just_pressed("interact"):
+				target.Enter()
+			
+			
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -117,3 +129,6 @@ func _wall_jump():
 
 func _on_coyote_time_timeout() -> void:
 	coyote = false
+
+func ShowBow():
+	%Sketchfab_Scene.show()

@@ -50,6 +50,11 @@ _subresources={
 "save_to_file/fallback_path": "res://Assets/Mesh/Pillar.tres",
 "save_to_file/path": "uid://b52rys8v4dnad"
 }
+},
+"nodes": {
+"PATH:Cylinder": {
+"generate/physics": true
+}
 }
 }
 gltf/naming_version=2
